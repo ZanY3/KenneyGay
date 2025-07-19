@@ -1861,7 +1861,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4259552965227428294, guid: fa26792948c61d24fa57b1b313003129, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.7551422
+      value: -3.25
       objectReference: {fileID: 0}
     - target: {fileID: 4259552965227428294, guid: fa26792948c61d24fa57b1b313003129, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1898,6 +1898,10 @@ PrefabInstance:
     - target: {fileID: 7661023483594128885, guid: fa26792948c61d24fa57b1b313003129, type: 3}
       propertyPath: m_Name
       value: RoomMover(Bottom)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8734532742009672745, guid: fa26792948c61d24fa57b1b313003129, type: 3}
+      propertyPath: PlayerChangePos.x
+      value: -4.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

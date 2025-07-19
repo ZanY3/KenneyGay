@@ -1085,6 +1085,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RoomMover(Left)
       objectReference: {fileID: 0}
+    - target: {fileID: 8734532742009672745, guid: fa26792948c61d24fa57b1b313003129, type: 3}
+      propertyPath: PlayerChangePos.x
+      value: -4.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1711,7 +1715,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8734532742009672745, guid: fa26792948c61d24fa57b1b313003129, type: 3}
       propertyPath: PlayerChangePos.x
-      value: 1.3
+      value: 4.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
