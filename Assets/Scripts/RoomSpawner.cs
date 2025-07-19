@@ -23,30 +23,38 @@ public class RoomSpawner : MonoBehaviour
     }
     public void Spawn()
     {
-        if(!_spawned)
+        if (!_spawned && LevelGenerator.Instance.CanSpawnMoreRooms())
         {
-            if(direction == Direction.Top)
+            GameObject roomToSpawn = null;
+
+            switch (direction)
             {
-                _rand = Random.Range(0, _variants.TopRooms.Length);
-                Instantiate(_variants.TopRooms[_rand], transform.position, _variants.TopRooms[_rand].transform.rotation);
+                case Direction.Top:
+                    _rand = Random.Range(0, _variants.TopRooms.Length);
+                    roomToSpawn = _variants.TopRooms[_rand];
+                    break;
+                case Direction.Bottom:
+                    _rand = Random.Range(0, _variants.BottomRooms.Length);
+                    roomToSpawn = _variants.BottomRooms[_rand];
+                    break;
+                case Direction.Left:
+                    _rand = Random.Range(0, _variants.LeftRooms.Length);
+                    roomToSpawn = _variants.LeftRooms[_rand];
+                    break;
+                case Direction.Right:
+                    _rand = Random.Range(0, _variants.RightRooms.Length);
+                    roomToSpawn = _variants.RightRooms[_rand];
+                    break;
             }
-            else if (direction == Direction.Bottom)
+
+            if (roomToSpawn != null)
             {
-                _rand = Random.Range(0, _variants.BottomRooms.Length);
-                Instantiate(_variants.BottomRooms[_rand], transform.position, _variants.BottomRooms[_rand].transform.rotation);
+                GameObject newRoom = Instantiate(roomToSpawn, transform.position, roomToSpawn.transform.rotation);
+                LevelGenerator.Instance.RegisterRoom(newRoom);
             }
-            else if (direction == Direction.Left)
-            {
-                _rand = Random.Range(0, _variants.LeftRooms.Length);
-                Instantiate(_variants.LeftRooms[_rand], transform.position, _variants.LeftRooms[_rand].transform.rotation);
-            }
-            else if (direction == Direction.Right)
-            {
-                _rand = Random.Range(0, _variants.RightRooms.Length);
-                Instantiate(_variants.RightRooms[_rand], transform.position, _variants.RightRooms[_rand].transform.rotation);
-            }
+
+            _spawned = true;
         }
-        _spawned = true;
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
